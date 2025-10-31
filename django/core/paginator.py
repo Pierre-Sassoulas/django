@@ -107,18 +107,18 @@ class BasePaginator:
             return
 
         if number > (1 + on_each_side + on_ends) + 1:
-            yield from range(1, on_ends + 1):
+            yield from range(1, on_ends + 1)
             yield self.ELLIPSIS
-            yield from range(number - on_each_side, number + 1):
+            yield from range(number - on_each_side, number + 1)
         else:
-            yield from range(1, number + 1):
+            yield from range(1, number + 1)
 
         if number < (num_pages - on_each_side - on_ends) - 1:
-            yield from range(number + 1, number + on_each_side + 1):
+            yield from range(number + 1, number + on_each_side + 1)
             yield self.ELLIPSIS
-            yield from range(num_pages - on_ends + 1, num_pages + 1):
+            yield from range(num_pages - on_ends + 1, num_pages + 1)
         else:
-            yield from range(number + 1, num_pages + 1):
+            yield from range(number + 1, num_pages + 1)
 
     def _get_page(self, *args, **kwargs):
         """
